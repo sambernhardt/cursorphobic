@@ -1,5 +1,5 @@
 body {
-  background: rgb(50, 50, 50);
+  background: rgb(239, 239, 244);
 }
 
 body, h1, h2, h3, h4, h5, h6, p {
@@ -9,9 +9,10 @@ body, h1, h2, h3, h4, h5, h6, p {
 }
 
 .main {
-  // background: purple;
-  width: 100vw;
+  background: white;
+  width: 900px;
   height: 100vh;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +32,9 @@ body, h1, h2, h3, h4, h5, h6, p {
     color: white;
     padding: 10px;
     box-sizing: border-box;
+    &.hidden {
+      display: none;
+    }
   }
 
   .button {

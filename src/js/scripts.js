@@ -1,11 +1,11 @@
-
 var margin = 50;
 var proximity = 75;
 
 var button = document.querySelector(".button");
+var main = document.querySelector(".main");
+var buttonPosition = getPosition(button);
 var buttonWidth = button.offsetWidth;
 var buttonHeight = button.offsetHeight;
-
 var xPos = document.querySelector("#xpos");
 var yPos = document.querySelector("#ypos");
 
@@ -13,60 +13,60 @@ function positionButton(mouseX, mouseY) {
   xPos.innerHTML = 'X: ' + mouseX;
   yPos.innerHTML = 'Y: ' + mouseY;
 
-  var ww = window.innerWidth;
-  var wh = window.innerHeight;
+  var ww = main.outerWidth;
+  var wh = main.outerHeight;
 
-  var t = button.offsetTop;
-  var r = button.offsetLeft + button.offsetWidth;
-  var b = button.offsetTop + button.offsetHeight;
-  var l = button.offsetLeft;
-  var xc = button.offsetLeft + (button.offsetWidth / 2);
-  var yc = button.offsetTop + (button.offsetHeight / 2);
+  var t = buttonPosition.y;
+  var r = buttonPosition.x + buttonWidth;
+  var b = buttonPosition.y + buttonHeight;
+  var l = buttonPosition.x;
+  var xc = buttonPosition.x + (buttonWidth / 2);
+  var yc = buttonPosition.y + (buttonHeight / 2);
 
   var dx = 0;
   var dy = 0;
-  console.log(xc, yc);
 
   // if the mouse is within 200 pixels of the outerwidth
-  if (mouseX > l - proximity || mouseX < r + proximity) {
-    // if the mouse is within 200 pixels of the outer height
-    if (mouseY < t - proximity || mouseY < b + proximity) {
+  if (mouseY > t - proximity && mouseY < b + proximity) {
 
       if (mouseX + margin > l && mouseX < xc) {
-        dx = mouseX - ((ww/2) - (buttonWidth / 2)) + margin;
+        dx = mouseX - l + margin;
       }
       if (mouseX - margin < r && mouseX > xc) {
-        dx = mouseX - ((ww/2) + (buttonWidth / 2)) - margin;
+        dx = mouseX - r - margin;
       }
 
-      if (mouseY + margin > t && mouseY < yc) {
-        dy = mouseY - ((wh/2) - (buttonWidth / 2)) + margin;
-      }
-      if (mouseY - margin < b && mouseY > yc) {
-        dy = mouseY - ((wh/2) + (buttonWidth / 2)) - margin;
-      }
-
-    }
   }
 
+  if (mouseX > l - proximity && mouseX < r + proximity) {
 
-  var newX = dx;
-  var newY = dy;
+      if (mouseY + margin > t && mouseY < yc) {
+        dy = mouseY - t + margin;
+      }
+      if (mouseY - margin < b && mouseY > yc) {
+        dy = mouseY - b - margin;
+      }
 
-  button.style.transform = "translate("+newX+"px, "+newY+"px)";
-  // button.style.transform = "translateX("+newX+"px)";
+  }
+
+  button.style.transform = "translate("+dx+"px, "+dy+"px)";
 }
 
-
 document.addEventListener("mousemove", function(e) {
-  var ww = window.innerWidth;
-  var wh = window.innerHeight;
-
-  positionButton(e.pageX, e.pageY);
-  // var xmapped = scale(e.pageX, 0, ww, -100, 100);
-  // var ymapped = scale(e.pageY, 0, wh, 100, -100);
-
-
+  console.log([e.clientX, e.clientY]);
+  positionButton(e.clientX, e.clientY);
 })
 
-// console.log(button.offsetTop);
+// Shawn Whinnery stack overflow
+function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+
+    while(element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+
+    return { x: xPosition, y: yPosition };
+}

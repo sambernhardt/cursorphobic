@@ -1,5 +1,5 @@
 body {
-  background: #323232; }
+  background: #efeff4; }
 
 body, h1, h2, h3, h4, h5, h6, p {
   margin: 0 0 0 0;
@@ -7,8 +7,10 @@ body, h1, h2, h3, h4, h5, h6, p {
   font-family: "Helvetica"; }
 
 .main {
-  width: 100vw;
+  background: white;
+  width: 900px;
   height: 100vh;
+  margin: 0 auto;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -34,6 +36,8 @@ body, h1, h2, h3, h4, h5, h6, p {
     color: white;
     padding: 10px;
     box-sizing: border-box; }
+    .main #stats.hidden {
+      display: none; }
   .main .button {
     background: #dfe3f4;
     color: #2e3241;
