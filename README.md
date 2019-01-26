@@ -1,6 +1,20 @@
 # Cursorphobic
 
-inspired by [FireShell](http://getfireshell.com)
-Fiercely quick front-end boilerplate and workflows.
+## Usage
+```javascript
+cursorphobic('.selector')
+```
 
-The opinionated FastShell framework. Built for the modern developer. For teams and the individual, encouraging a better workflow. JavaScript task running, build processes, autominification and file concatenation, wrapped with an enhanced HTML5 boilerplated framework.
+### Configurations
+```javascript
+cursorphobic('.selector', {
+  margin: 50,
+  proximity: 50
+})
+```
+
+
+key | option type | example
+----|---------|------
+`proximity` | integer | `50`
+`margin` | integer | `50`

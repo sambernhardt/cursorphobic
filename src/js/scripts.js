@@ -3,13 +3,16 @@ var yPos = document.querySelector("#ypos");
 
 function cursorphobic(selector, config) {
   var obj = {};
+  obj.margin = 50;
+  obj.proximity = 50;
+  obj.animationDelay = 0.1;
 
-  console.log(selector);
-  obj.margin = config.margin;
-  obj.proximity = config.proximity;
+  if (config.margin != undefined) obj.margin = config.margin;
+  if (config.proximity != undefined) obj.proximity = config.proximity;
+  if (config.animationDelay != undefined) obj.animationDelay = config.animationDelay;
 
   obj.el = document.querySelector(selector);
-  obj.el.style.transition = "transform .1s";
+  obj.el.style.transition = "transform " + obj.animationDelay + "s";
   obj.elPosition = getPosition(obj.el);
   obj.elWidth = obj.el.offsetWidth;
   obj.elHeight = obj.el.offsetHeight;
