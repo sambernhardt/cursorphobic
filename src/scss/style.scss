@@ -1,45 +1,60 @@
-//----------------------------------*\
-// SCSS MIXINS
-//----------------------------------*/
+body {
+  background: rgb(50, 50, 50);
+}
 
-@import 'mixins/_position.scss';
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: "Helvetica";
+}
 
-//----------------------------------*\
-// CONFIG MODULES
-//----------------------------------*/
+.main {
+  // background: purple;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-// Config modules
-@import 'modules/_vars.scss';
-@import 'modules/_clearfix.scss';
-@import 'modules/_defaults.scss';
-@import 'modules/_normalize.scss';
-//----------------------------------*\
-// PARTIALS
-//----------------------------------*/
+  #stats {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background: black;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 
-@import 'partials/_header.scss';
-@import 'partials/_nav.scss';
-@import 'partials/_sidebar.scss';
-@import 'partials/_main.scss';
-@import 'partials/_footer.scss';
+  .button {
+    background: rgb(223, 227, 244);
+    color: rgb(46, 50, 65);
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    // transition: background .2s transform .5s;
+    transition: transform .1s;
+    // position: absolute;
+    // left: 0;
+    // top:0;
 
-//----------------------------------*\
-// OBJECTS & MODULES
-//----------------------------------*/
+    &:hover {
+      background: rgb(196, 200, 215);
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+      cursor: pointer;
+    }
 
-@import 'modules/_buttons.scss';
-@import 'modules/_inputs.scss';
-@import 'modules/_lists.scss';
-@import 'modules/_typography.scss';
-@import 'modules/_misc.scss';
-@import 'modules/_app.scss';
-
-// Enhancement modules
-@import 'modules/_breakpoints.scss';
-@import 'modules/_print.scss';
-
-//----------------------------------*\
-// VENDOR
-//----------------------------------*/
-
-@import 'vendor/_external.scss';
+    &:active {
+      background: rgb(169, 179, 219);
+      // border: none;
+    }
+  }
+}
