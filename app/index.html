@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>FastShell by @_Karamii</title>
+    <title>Cursorphobic</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -15,15 +15,23 @@
     <script src="assets/components/modernizr/modernizr.js"></script>
   </head>
   <body>
-    <div class="main" role="main">
-      <div id="stats" class="">
+    <div id="stats" class="hidden">
         <p id="xpos">X: </p>
         <p id="ypos">Y: </p>
       </div>
-      <button class="button">Click me</button>
+    <div class="main" role="main">
+      <h1>Test</h1>
+      <button class="button" id="btn1">Submit</button>
+      <button class="button" id="btn2">Submit 2</button>
     </div>
     <!-- <script src="assets/components/jquery/jquery.min.js"></script> -->
     <script src="assets/js/scripts.min.js"></script>
+    <script>
+      cursorphobic('#btn1', {
+        margin: 150,
+        proximity: 150
+      })
+    </script>
 
   </body>
 </html>

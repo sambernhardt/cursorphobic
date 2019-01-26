@@ -6,30 +6,42 @@
  * @version 1.0.5
  * Copyright 2019. MIT licensed.
  */
-var margin = 50;
-var proximity = 75;
+var margin = 0;
+var proximity = 0;
 
-var button = document.querySelector(".button");
+var el = document.querySelector(".button");
+el.style.transition = "transform .1s";
 var main = document.querySelector(".main");
-var buttonPosition = getPosition(button);
-var buttonWidth = button.offsetWidth;
-var buttonHeight = button.offsetHeight;
+var elPosition = getPosition(el);
+var elWidth = el.offsetWidth;
+var elHeight = el.offsetHeight;
+
 var xPos = document.querySelector("#xpos");
 var yPos = document.querySelector("#ypos");
 
-function positionButton(mouseX, mouseY) {
+function cursorphobic(selector, config) {
+  margin = config.margin;
+  proximity = config.proximity;
+
+
+  document.addEventListener("mousemove", function(e) {
+    moveButton(e.clientX, e.clientY);
+  })
+}
+
+function moveButton(mouseX, mouseY) {
   xPos.innerHTML = 'X: ' + mouseX;
   yPos.innerHTML = 'Y: ' + mouseY;
 
   var ww = main.outerWidth;
   var wh = main.outerHeight;
 
-  var t = buttonPosition.y;
-  var r = buttonPosition.x + buttonWidth;
-  var b = buttonPosition.y + buttonHeight;
-  var l = buttonPosition.x;
-  var xc = buttonPosition.x + (buttonWidth / 2);
-  var yc = buttonPosition.y + (buttonHeight / 2);
+  var t = elPosition.y;
+  var r = elPosition.x + elWidth;
+  var b = elPosition.y + elHeight;
+  var l = elPosition.x;
+  var xc = elPosition.x + (elWidth / 2);
+  var yc = elPosition.y + (elHeight / 2);
 
   var dx = 0;
   var dy = 0;
@@ -57,13 +69,8 @@ function positionButton(mouseX, mouseY) {
 
   }
 
-  button.style.transform = "translate("+dx+"px, "+dy+"px)";
+  el.style.transform = "translate("+dx+"px, "+dy+"px)";
 }
-
-document.addEventListener("mousemove", function(e) {
-  console.log([e.clientX, e.clientY]);
-  positionButton(e.clientX, e.clientY);
-})
 
 // Shawn Whinnery stack overflow
 function getPosition(element) {
