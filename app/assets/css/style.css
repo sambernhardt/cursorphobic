@@ -1,7 +1,4 @@
 body {
-  background: #efeff4; }
-
-body, h1, h2, h3, h4, h5, h6, p {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   font-family: "Helvetica"; }
@@ -33,18 +30,25 @@ body, h1, h2, h3, h4, h5, h6, p {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  padding: 50px;
+  padding: 200px 50px;
   box-sizing: border-box; }
-  .main .button {
-    background: #dfe3f4;
+  .main .btn {
+    background: #efeff4;
     color: #2e3241;
     font-size: 18px;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px; }
-    .main .button:hover {
-      background: #c4c8d7;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      cursor: pointer; }
-    .main .button:active {
+    border-radius: 5px;
+    transition: background .2s;
+    margin-right: 20px;
+    cursor: pointer; }
+    .main .btn.btn-alert {
+      background: #ed2b2b;
+      color: white; }
+      .main .btn.btn-alert:hover {
+        background: #b92929; }
+    .main .btn:hover {
+      background: #dcdce4;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    .main .btn:active {
       background: #a9b3db; }

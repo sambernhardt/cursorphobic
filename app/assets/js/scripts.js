@@ -11,8 +11,8 @@ var yPos = document.querySelector("#ypos");
 
 function cursorphobic(selector, config) {
   var obj = {};
-  obj.margin = 50;
-  obj.proximity = 50;
+  obj.margin = 0;
+  obj.proximity = 0;
   obj.animationDelay = 0.1;
 
   if (config.margin != undefined) obj.margin = config.margin;
@@ -20,7 +20,7 @@ function cursorphobic(selector, config) {
   if (config.animationDelay != undefined) obj.animationDelay = config.animationDelay;
 
   obj.el = document.querySelector(selector);
-  obj.el.style.transition = "transform " + obj.animationDelay + "s";
+  obj.el.style.transition = obj.el.style.transition + " transform " + obj.animationDelay + "s";
   obj.elPosition = getPosition(obj.el);
   obj.elWidth = obj.el.offsetWidth;
   obj.elHeight = obj.el.offsetHeight;
