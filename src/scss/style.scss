@@ -8,7 +8,8 @@ body {
   font-family: "Helvetica";
 }
 
-h1 {
+h2 {
+  color: hsl(240, 8%, 15%);
 }
 
 #stats {
@@ -35,41 +36,49 @@ h1 {
   width: 900px;
   height: 100vh;
   margin: 0 auto;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  text-align: center;
   position: relative;
-  padding: 200px 50px;
+  padding: 0px 50px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .btn {
-    background: rgb(239, 239, 244);
-    color: rgb(46, 50, 65);
-    font-size: 18px;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background .2s;
-    margin-right: 20px;
-    cursor: pointer;
+  .form {
+    // background: purple;
+  }
+}
 
-    &.btn-alert {
-      background: rgb(237, 43, 43);
-      color: white;
-      &:hover {
-        background: rgb(185, 41, 41);
-      }
-    }
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
 
+.btn {
+  background: hsl(240, 8%, 95%);
+  color: rgb(46, 50, 65);
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background .3s;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &.btn-alert {
+    background: hsl(0, 80%, 55%);
+    color: white;
     &:hover {
-      background: rgb(220, 220, 228);
-      box-shadow: 0 0 10px rgba(0,0,0,.1);
-
+      background: hsl(0, 70%, 50%);
     }
+  }
 
-    &:active {
-      background: rgb(169, 179, 219);
-      // border: none;
-    }
+  &:hover {
+    background: hsl(240, 8%, 90%);
+  }
+
+  &:active {
+    background: hsl(240, 8%, 80%);
+    // border: none;
   }
 }

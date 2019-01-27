@@ -20,16 +20,19 @@
         <p id="ypos">Y: </p>
       </div>
     <div class="main" role="main">
-      <h1>Are you sure you want to delete your account?</h1>
-      <button class="btn" id="btn1">No, cancel</button>
-      <button class="btn btn-alert" id="btn2">Yes, Delete Account</button>
+      <div class="form">
+        <h2>Are you sure you want to delete your account?</h2>
+        <div class="buttonContainer">
+          <div class="btn" id="btn1">No, cancel</div>
+          <div class="btn btn-alert" id="btn2">Yes, Delete Account</div>
+        </div>
+      </div>
     </div>
     <!-- <script src="assets/components/jquery/jquery.min.js"></script> -->
     <script src="assets/js/scripts.min.js"></script>
     <script>
       cursorphobic('#btn2', {
-        margin: 50,
-        // proximity: 20
+        proximity: 100
       })
     </script>
 
