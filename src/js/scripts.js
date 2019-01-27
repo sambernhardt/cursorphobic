@@ -15,7 +15,7 @@ function cursorphobic(selector, config) {
   // if (config.margin != undefined) obj.margin = config.margin;
   if (config.proximity != undefined) obj.proximity = config.proximity;
   if (config.animationDelay != undefined) obj.animationDelay = config.animationDelay;
-  obj.margin = obj.proximity;
+  // obj.margin = obj.proximity;
 
   obj.el = document.querySelector(selector);
   obj.el.style.transition = obj.el.style.transition + " transform " + obj.animationDelay + "s";
@@ -44,25 +44,26 @@ function cursorphobic(selector, config) {
     var dx = 0;
     var dy = 0;
 
-    // if the mouse is within 200 pixels of the outerwidth
+    // if the mouse is within proximity distance of the top and bottom
     if (mouseY > t - obj.proximity && mouseY < b + obj.proximity) {
 
-        if (mouseX + obj.margin > l && mouseX < xc) {
-          dx = mouseX - l + obj.margin;
+        if (mouseX + obj.proximity > l && mouseX < xc) {
+          dx = mouseX - l + obj.proximity;
         }
-        if (mouseX - obj.margin < r && mouseX > xc) {
-          dx = mouseX - r - obj.margin;
+        if (mouseX - obj.proximity < r && mouseX > xc) {
+          dx = mouseX - r - obj.proximity;
         }
 
     }
 
+    // if the mouse is within proximity distance of the left and right
     if (mouseX > l - obj.proximity && mouseX < r + obj.proximity) {
 
-        if (mouseY + obj.margin > t && mouseY < yc) {
-          dy = mouseY - t + obj.margin;
+        if (mouseY + obj.proximity > t && mouseY < yc) {
+          dy = mouseY - t + obj.proximity;
         }
-        if (mouseY - obj.margin < b && mouseY > yc) {
-          dy = mouseY - b - obj.margin;
+        if (mouseY - obj.proximity < b && mouseY > yc) {
+          dy = mouseY - b - obj.proximity;
         }
 
     }
