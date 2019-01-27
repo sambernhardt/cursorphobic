@@ -1,5 +1,7 @@
 # Cursorphobic
 
+![alt text](https://raw.githubusercontent.com/sambernhardt/cursorphobic/master/demo.gif "Logo Title Text 1")
+
 ## Usage
 ```javascript
 cursorphobic('.selector')
